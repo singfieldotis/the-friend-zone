@@ -1,4 +1,3 @@
-
 const { Schema, model, Types } = require('mongoose');
 
 const reactionsSchema = new Schema({
