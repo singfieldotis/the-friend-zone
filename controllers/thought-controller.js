@@ -35,7 +35,7 @@ const thoughtController = {
         .then(dbThoughtData => {
             User.findOneAndUpdate(
                 { _id: body.userId },
-                { $push: { thought: dbThoughtData._id } },
+                { $push: { thoughts: dbThoughtData._id } },
                 { new: true }
             )
             .then(dbUserData => {
@@ -88,7 +88,7 @@ const thoughtController = {
     addReaction({ params, body }, res) {
         Thought.findOneAndUpdate(
             { _id: params.thoughtId },
-            { $addToSet: { reaction: body } },
+            { $addToSet: { reactions: body } },
             { new: true, runValidators: true }
         )
         .then(dbThoughtData => {
